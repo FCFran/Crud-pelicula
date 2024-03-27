@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Delete Registro</h2>
+<mat-dialog-content>
+ {{data}}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onConfirm(true)" color="warn">OK<mat-icon>delete</mat-icon> </button>
+  <button mat-button (click)="onConfirm(false)" >NO</button>
+</mat-dialog-actions>

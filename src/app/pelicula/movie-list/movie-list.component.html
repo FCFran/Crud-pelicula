@@ -1,0 +1,57 @@
+<mat-table [dataSource]="movie" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- titulo Column -->
+  <ng-container matColumnDef="titulo">
+    <mat-header-cell *matHeaderCellDef>Titulo</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+  </ng-container>
+
+  <!-- director Column -->
+  <ng-container matColumnDef="director">
+    <mat-header-cell *matHeaderCellDef> Director </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.director}} </mat-cell>
+  </ng-container>
+
+  <!-- fecha de estreno Column -->
+  <ng-container matColumnDef="fechaEstreno">
+    <mat-header-cell *matHeaderCellDef> Fecha De Estreno </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fechaEstreno}} </mat-cell>
+  </ng-container>
+
+  <!-- genero Column -->
+  <ng-container matColumnDef="genero">
+    <mat-header-cell *matHeaderCellDef> Genero </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.genero.name}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  <!-- botones de acción-->
+  <ng-container matColumnDef="actions">
+
+    <mat-header-cell  *matHeaderCellDef class="action-column">
+      <button mat-mini-fab color="accent" class="addcolor" aria-label="Adicionar un curso" (click)='onAdd()'>
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let element" class="action-column">
+      <div class="action-columna">
+      <button mat-icon-button style="color:#2c94f7 ;" aria-label="Editar curso" (click) = "onEdit(element)">
+        <mat-icon >edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="Remover curso" (click) = "onDelete(element)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    </mat-cell>
+
+  </ng-container>
+
+</mat-table>
+
+
